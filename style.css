@@ -169,3 +169,12 @@
         transform: rotate(-360deg);
     }
 }
+.autowats-embeded-form .close{
+    position: absolute;
+    top: 22px;
+    right: 28px;
+    font-size: 30px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
