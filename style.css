@@ -1,0 +1,102 @@
+.autowats-embeded-form, .autowats-embeded-form *{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    position: relative;
+    font-family: "Bree Serif", sans-serif;
+    box-sizing: border-box;
+}
+.autowats-embeded-form{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #0004;
+    z-index: 99999;
+}
+.autowats-embeded-form .section{
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin: 10px auto;
+    width: 96%;
+    max-width: 400px;
+    border: 1px solid #12121212;
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px 2px #21212121;
+    transform: translateX(100vw);
+    transition-duration: 0.4s;
+}
+.autowats-embeded-form .section.animate-to-open{
+    transform: translateX(0vw);
+}
+.autowats-embeded-form h1, p, label{
+    color: #121212;
+}
+.autowats-embeded-form h1{
+    font-size: 28px;
+    border-radius: 2px;
+    padding: 4px;
+    background-color: #12121208;
+    border: 1px solid #12121205;
+    border-left: 4px solid #0FA3B1;
+    font-family: 'Lora', sans-serif;
+}
+.autowats-embeded-form p{
+    margin: 8px 0px 20px 0px;
+    font-size: 18px;
+}
+.autowats-embeded-form label{
+    font-size: 15px;
+}
+.autowats-embeded-form input{
+    width: 100%;
+    padding: 10px;
+    display: block;
+    border: 2px solid #12121212;
+    border-radius: 4px;
+    background-color: #12121200;
+    outline: none;
+    margin: 2px 0px 0px 0px;
+    font-size: 16px;
+    transition-duration: 0.3s;
+}
+.autowats-embeded-form input:focus{
+    border: 2px solid #12121252;
+}
+.autowats-embeded-form button{
+    padding: 8px 32px;
+    margin: 10px 0 0 0;
+    color: #f7f7f7;
+    background-color: #0FA3B1;
+    font-size: 16px;
+    border: 2px solid #12121221;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+.autowats-embeded-form button:hover{
+    background-color: #f7f7f7;
+    color: #0FA3B1;
+    border: 2px solid #0FA3B1;
+}
+.autowats-embeded-form label a{
+    color: #0FA3B1;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+.autowats-embeded-form label a:hover{
+    opacity: 0.8;
+}
+.autowats-embeded-form .error{
+    color: #b22b2b;
+    margin: 0px 0px 10px 0px;
+    font-size: 15px;
+    opacity: 0;
+}
