@@ -36,6 +36,9 @@ autowatsForm.innerHTML = `<div class="section">
 			<button onclick="autowatsSubmitForm(this)" class="btn">Submit</button><div class="btn-particles"></div>
 		</div>
 	</div>
+	<div class="sent-successfully">
+		<span>Sent Successfully</span>
+	</div>
 </div>`
 document.body.appendChild(autowatsForm)
 
@@ -69,7 +72,7 @@ const autowatsOpenOrCloseProperties = {
 	}
 }
 let AutowatsFormStatus = "close"
-function toggleAutowatsEmbededForm(e){
+function toggleAutowatsEmbededForm(e = document.querySelector(".autowats-embeded-form-toggle-btn")){
 	AutowatsFormStatus = AutowatsFormStatus == "close" ? "open" : "close"
 	setTimeout(()=>{
 		autowatsForm.querySelector(".section").classList.add(autowatsOpenOrCloseProperties[AutowatsFormStatus].addClass)
@@ -86,8 +89,12 @@ function autowatsValidateName(e = document.getElementById("autowatsName")){
 		e.parentNode.querySelector(".error").style.opacity = "0"
 		e.parentNode.querySelector(".error").textContent = "No Errors"
 		return true
-	}else{
+	}else if(e.value.length == 0){
 		e.parentNode.querySelector(".error").textContent = "Required"
+		e.parentNode.querySelector(".error").style.opacity = "1"
+		return false
+	}else{
+		e.parentNode.querySelector(".error").textContent = "Enter a valid name"
 		e.parentNode.querySelector(".error").style.opacity = "1"
 		return false
 	}
@@ -97,8 +104,12 @@ function autowatsValidateEmail(e = document.getElementById("autowatsEmail")){
 		e.parentNode.querySelector(".error").style.opacity = "0"
 		e.parentNode.querySelector(".error").textContent = "No Errors"
 		return true
-	}else{
+	}else if(e.value.length == 0){
 		e.parentNode.querySelector(".error").textContent = "Required"
+		e.parentNode.querySelector(".error").style.opacity = "1"
+		return false
+	}else{
+		e.parentNode.querySelector(".error").textContent = "Enter a valid email"
 		e.parentNode.querySelector(".error").style.opacity = "1"
 		return false
 	}
@@ -108,8 +119,12 @@ function autowatsValidatePhone(e = document.getElementById("autowatsPhone")){
 		e.parentNode.querySelector(".error").style.opacity = "0"
 		e.parentNode.querySelector(".error").textContent = "No Errors"
 		return true
-	}else{
+	}else if(e.value.length == 0){
 		e.parentNode.querySelector(".error").textContent = "Required"
+		e.parentNode.querySelector(".error").style.opacity = "1"
+		return false
+	}else{
+		e.parentNode.querySelector(".error").textContent = "Enter a valid phone number"
 		e.parentNode.querySelector(".error").style.opacity = "1"
 		return false
 	}
@@ -122,14 +137,21 @@ function autowatsSubmitForm(e){
 		console.log(fullName, emailAddress, phoneNumber)
 		autowatsSubmittedSuccessfully(e)
 		setTimeout(()=>{
-			toggleAutowatsEmbededForm()
+			document.querySelector(".autowats-embeded-form .form").style.opacity = "0"
+			document.querySelector(".autowats-embeded-form .sent-successfully").style.display = "flex"
+			setTimeout(()=>{
+				toggleAutowatsEmbededForm()
+				setTimeout(()=>{
+					document.querySelector(".autowats-embeded-form .form").style.opacity = "1"
+					document.querySelector(".autowats-embeded-form .sent-successfully").style.display = "none"
+				}, 400)
+			}, 1600)
 		}, 800)
 	}else{
 		console.log("Not valid")
 	}
 }
 function autowatsSubmittedSuccessfully(e){
-	console.log(e.nextSibling)
 	let particles = []
 	let colors = ["#2aa2a2", "#2bb2b2", "#2cc2c2", "#2dd2d2", "#2ee2e2"]
 	for(let i=0; i<20; i++){
