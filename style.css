@@ -69,9 +69,12 @@
 .autowats-embeded-form input:focus{
     border: 2px solid #12121252;
 }
-.autowats-embeded-form button{
-    padding: 8px 32px;
+.autowats-embeded-form .btn-container{
     margin: 10px 0 0 0;
+    width: fit-content;
+}
+.autowats-embeded-form .btn{
+    padding: 8px 32px;
     color: #f7f7f7;
     background-color: #0FA3B1;
     font-size: 16px;
@@ -79,6 +82,27 @@
     border-radius: 4px;
     transition-duration: 0.3s;
     cursor: pointer;
+    z-index: 2;
+}
+.autowats-embeded-form .btn-particles{
+    width: 20px;
+    height: 20px;
+    background-color: #b22b2b;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.autowats-embeded-form .btn-particle{
+    aspect-ratio: 1/1;
+    position: absolute;
+    transform: translate(0px, 0px);
+    transition-duration: 0.8s;
+    opacity: 1;
+}
+.autowats-embeded-form .animated-particle{
+    opacity: 0;
 }
 .autowats-embeded-form button:hover{
     background-color: #f7f7f7;
